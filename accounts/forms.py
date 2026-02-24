@@ -38,10 +38,10 @@ class UserForm(forms.ModelForm) :
             self.fields[field].widget.attrs['class']='form-control'
 class UserProfileForm(forms.ModelForm) :
     
-    profile_picture=forms.ImageField(required=False,error_messages={'invalid':("Image fields only")},widget=forms.FileInput)#to remove current profile picture heading in edit profile section
+    #profile_picture=forms.ImageField(required=False,error_messages={'invalid':("Image fields only")},widget=forms.FileInput)#to remove current profile picture heading in edit profile section
     class Meta :
         model=UserProfile
-        fields=('address_line_1','address_line_2','city','state','country','profile_picture')
+        fields=('address_line_1','address_line_2','city','state','country')
     def __init__(self,*args,**kwargs) :
         super(UserProfileForm,self).__init__(*args,**kwargs)
         for field in self.fields :
