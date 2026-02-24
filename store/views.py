@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from .models import Product
 from category.models import Category
 from orders.models import OrderProduct
+from .models import ProductsGallary
 from carts.models import CartItem
 from carts.views import _cart_id
 from django.http import HttpResponse
@@ -49,7 +50,8 @@ def product_detail(request,category_slug,product_slug) :
         product_reviews=ReviewRating.objects.filter(product_id=single_product.id,status=True)
     except :
         product_reviews=None
-    context={'single_product':single_product,'in_cart':in_cart,'order_product':order_product,'product_reviews':product_reviews}
+    product_gallary=ProductsGallary.objects.filter(product_id=single_product.id)
+    context={'single_product':single_product,'in_cart':in_cart,'order_product':order_product,'product_reviews':product_reviews,'product_gallary':product_gallary}
     return render(request,'store/product_detail.html',context)
 def search(request) :
     if 'keyword' in request.GET :

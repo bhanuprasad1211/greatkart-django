@@ -179,7 +179,12 @@ def cart(request) :
         tax=(total*2)/100
         grand_total=total+tax
     except ObjectDoesNotExist :
-        pass
+        cart_items=False
+        total=0
+        quantity=0
+        tax=0
+        grand_total=0
+        
     context={'cart_items':cart_items,'total':total,'quantity':quantity,'tax':tax,'grand_total':grand_total}
     return render(request,'store/cart.html',context)
 @login_required(login_url='login')

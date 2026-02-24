@@ -269,11 +269,8 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
-  appearance: button;         /* Standard */
-  -webkit-appearance: button; /* For Chrome, Safari, Edge */
-  -moz-appearance: button;    /* For Firefox */
+  -webkit-appearance: button;
 }
-
 
 button:not(:disabled),
 [type=button]:not(:disabled),
@@ -300,10 +297,8 @@ input[type=date],
 input[type=time],
 input[type=datetime-local],
 input[type=month] {
-  appearance: listbox;          /* Standard property */
-  -webkit-appearance: listbox;  /* Safari/Chrome fallback */
+  -webkit-appearance: listbox;
 }
-
 
 textarea {
   overflow: auto;
@@ -339,12 +334,9 @@ progress {
 }
 
 [type=search] {
-  appearance: none;           /* Standard */
-  -webkit-appearance: none;   /* Safari/Chrome */
-  -moz-appearance: none;      /* Firefox (less used for search inputs) */
   outline-offset: -2px;
+  -webkit-appearance: none;
 }
-
 
 [type=search]::-webkit-search-decoration {
   -webkit-appearance: none;

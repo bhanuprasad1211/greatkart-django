@@ -113,58 +113,6 @@
 </section>
 
 
-<!-- <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const cashfree = Cashfree({ mode: "sandbox" });
-  const payBtn = document.getElementById("pay-now-btn");
-
-  if (!payBtn) {
-    console.error("Pay button not found in DOM");
-    return;
-  }
-
-  payBtn.addEventListener("click", async function() {
-    try {
-      const resp = await fetch("/create-cashfree-order/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRFToken": getCookie("csrftoken"),
-        },
-        body: JSON.stringify({
-          amount: "{{ grand_total|default:0 }}",
-          currency: "INR",
-        }),
-      });
-
-      const data = await resp.json();
-      if (!data.paymentSessionId) {
-        console.error("No session ID:", data);
-        alert("Could not create payment session.");
-        return;
-      }
-
-      const result = await cashfree.checkout({
-        paymentSessionId: data.paymentSessionId,
-        redirectTarget: "_self",
-      });
-
-      console.log("Payment result:", result);
-    } catch (err) {
-      console.error("Payment error:", err);
-      alert("Payment failed to start");
-    }
-  });
-
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  }
-});
-</script> -->
-
 
 
 

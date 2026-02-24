@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="section-conten padding-y bg">
+        {% include 'includes/alerts.html' %}
+        <div class="container">
+            <div class="row">
+            <!-- {% include 'includes/dashboard-sidebar.html' %} -->
+            <main class="col-md-9">
+                <article class="card">
+                <header class="card-header">
+                    <strong class="d-inline-block mr-3">Your orders history</strong>
+                </header>
+                <div class="card-body">
+                    <div class="row"> 
+
+                        <div class="col-md-12">
+                            <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                <th scope="col">Products</th>
+                                <th scope="col">Quantuty</th>
+                                <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    {% for item in order_details %}
+                                        <tr>
+                                            <th scope="row">{{item.product.product_name}}{{item.variation.variation_category}}</th>
+                                            <td>{{item.quantity}}</td>
+                                            <td>{{order.order_total}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div> 
+                </div> 
+                
+                </article>
+            </main>
+        </div> 
+        </div>
+
+
+    </section>
+{% endblock %}
